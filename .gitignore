@@ -22,3 +22,4 @@ bulkloader-log-*
 
 # Java
 *.class
+*.*~
