@@ -13,4 +13,8 @@ public class Greetings {
         String fullName = findFullNameById(userId);
         return greetingsGenerator.generate(fullName);
     }
+
+    public findFullNameById(int userId){
+        return "John Smith";
+    }
 }
