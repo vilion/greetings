@@ -14,7 +14,7 @@ public class Greetings {
         return greetingsGenerator.generate(fullName);
     }
 
-    public findFullNameById(int userId){
+    public String findFullNameById(int userId){
         return "John Smith";
     }
 }
