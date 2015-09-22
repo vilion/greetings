@@ -9,7 +9,7 @@ import java.util.Random;
 @RandomGreetings
 
 @ApplicationScoped
-public class RandomGreetingGenerator implements GreetingsGenerator {
+public class RandomGreetingsGenerator implements GreetingsGenerator {
 
     static List<String> greetings = new ArrayList<>(Arrays.asList("Hello ", "Welcome, "));
     private Random random = new Random();

@@ -9,7 +9,7 @@ public class Greetings {
     @Inject
     GreetingsGenerator greetingsGenerator;
 
-    public String generateGreeting(int userId) {
+    public String generatesGreeting(int userId) {
         String fullName = findFullNameById(userId);
         return greetingsGenerator.generate(fullName);
     }

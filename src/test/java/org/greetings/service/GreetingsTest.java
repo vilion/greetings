@@ -3,7 +3,6 @@ package org.greetings.service;
 import static org.hamcrest.CoreMatchers.containsString;
 import static org.junit.Assert.assertThat;
 
-import org.greetings.service.Greetings;
 import org.junit.Test;
 
 
