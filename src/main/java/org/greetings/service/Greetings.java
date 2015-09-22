@@ -7,6 +7,7 @@ import javax.inject.Inject;
 
 public class Greetings {
     @Inject
+    @RandomGreetings
     GreetingsGenerator greetingsGenerator;
 
     public String generatesGreeting(int userId) {
