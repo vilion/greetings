@@ -38,17 +38,82 @@
             <scope>provided</scope>
         </dependency>  
         <dependency>
-          <groupId>org.jboss.arquillian.junit</groupId>
-          <artifactId>arquillian-junit-container</artifactId>
-          <scope>test</scope>
+            <groupId>org.jboss.arquillian.junit</groupId>
+            <artifactId>arquillian-junit-container</artifactId>
+            <scope>test</scope>
         </dependency>
         <dependency>
-          <groupId>org.apache.openejb</groupId>
-          <artifactId>arquillian-tomee-embedded</artifactId>
-          <version>1.7.1</version>
-          <scope>test</scope>
+            <groupId>org.apache.openejb</groupId>
+            <artifactId>arquillian-tomee-embedded</artifactId>
+            <version>1.7.1</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
+    <profiles>
+        <profile>
+          <id>arquillian-tomee-embedded</id>
+          <activation>
+            <activeByDefault>true</activeByDefault>
+          </activation>
+          <dependencies>
+            <dependency>
+              <groupId>org.apache.openejb</groupId>
+              <artifactId>arquillian-tomee-embedded</artifactId>
+              <version>1.7.1</version>
+              <scope>test</scope>
+            </dependency>
+            <dependency>
+              <groupId>org.apache.openejb</groupId>
+              <artifactId>javaee-api</artifactId>
+              <version>6.0-6</version>
+              <scope>provided</scope>
+            </dependency>
+          </dependencies>
+        </profile>
+        <profile>
+          <id>arquillian-glassfish-embedded</id>
+          <dependencies>
+            <dependency>
+              <groupId>org.jboss.arquillian.container</groupId>
+              <artifactId>arquillian-glassfish-embedded-3.1</artifactId>
+              <version>1.0.0.CR4</version>
+              <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.glassfish.main.extras</groupId>
+                <artifactId>glassfish-embedded-all</artifactId>
+                <version>3.1.2</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+              <groupId>org.slf4j</groupId>
+              <artifactId>slf4j-simple</artifactId>
+              <version>1.7.2</version>
+              <scope>test</scope>
+            </dependency>
+          </dependencies>
+          <build>
+    <pluginManagement>
+            <plugins>
+              <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.18.1</version>
+              </plugin>
+              <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                  <systemPropertyVariables>
+                    <arquillian.launch>glassfish</arquillian.launch>
+                  </systemPropertyVariables>
+                </configuration>
+              </plugin>
+            </plugins>
+    </pluginManagement>
+          </build>
+        </profile>
+    </profiles>
     <build>
         <finalName>greetings</finalName>
         <plugins>
